@@ -18,25 +18,15 @@ reports.forEach(report => {
     const currentLevel = Number(report[i]);
     const nextLevel = Number(report[i + 1]);
 
-    if (currentLevel === nextLevel) {
-      return isSafe = false;
-    };
+    if (currentLevel === nextLevel) return;
 
-    if (isDescending && currentLevel > (nextLevel + 3)) {
-      return isSafe = false
-    };
+    if (isDescending && currentLevel > (nextLevel + 3)) return;
 
-    if (isAscending && currentLevel < (nextLevel - 3)) {
-      return isSafe = false
-    };
+    if (isAscending && currentLevel < (nextLevel - 3)) return;
 
-    if (isAscending && currentLevel > nextLevel) {
-      return isSafe = false
-    };
+    if (isAscending && currentLevel > nextLevel) return;
 
-    if (isDescending && currentLevel < nextLevel) {
-      return isSafe = false
-    };
+    if (isDescending && currentLevel < nextLevel) return;
 
     isSafe = true;
   }
