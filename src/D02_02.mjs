@@ -34,8 +34,6 @@ reports.forEach((report) => {
 
 const reportsToRecheck = reports.filter((report) => !isSafe(report));
 
-console.log('reports to rechec', reportsToRecheck);
-
 reportsToRecheck.map((report) =>
   report.filter((l, i, arr) => {
     if (report === lastReport) {
@@ -47,12 +45,10 @@ reportsToRecheck.map((report) =>
 
     if (isSafe(report.toSpliced(i, 1))) {
       safeReportsNumber2 += 1;
-      console.log('safe report', report.toSpliced(i, 1));
       lastReport = report;
     }
   })
 );
 
-console.log('safe reports:', safeReportsNumber);
 console.log('safe reports 2:', safeReportsNumber2);
 console.log('total', safeReportsNumber + safeReportsNumber2);
